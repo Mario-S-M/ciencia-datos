@@ -23,10 +23,69 @@
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{xcolor}
+\usepackage{tcolorbox}
 \usepackage{enumitem}
 \usepackage{lastpage}
 \usepackage{background}
-\usepackage{textcomp}
+
+\usepackage{listings}
+\usepackage{inconsolata}
+\usepackage{fontawesome}
+\usepackage{mdframed}
+
+% Definición de colores para código
+\definecolor{lightgray}{gray}{0.95}
+\definecolor{darkgray}{gray}{0.3}
+\definecolor{mediumgray}{gray}{0.6}
+
+% Estilo para cajas de comando
+\newtcolorbox{comando}[1]{
+	colback=lightgray,
+	colframe=black,
+	boxrule=0.5pt,
+	arc=2pt,
+	title={\faTerminal\ #1},
+	fontupper=\ttfamily,
+	before skip=10pt,
+	after skip=10pt,
+	left=5pt,
+	right=5pt,
+	top=5pt,
+	bottom=5pt
+}
+
+% Configuración de listings
+\lstset{
+	basicstyle=\ttfamily\small,
+	backgroundcolor=\color{lightgray},
+	frame=single,
+	framesep=3pt,
+	breaklines=true,
+	breakatwhitespace=true,
+	showstringspaces=false,
+	numbers=left,
+	numberstyle=\tiny\color{darkgray},
+	numbersep=8pt,
+	keywordstyle=\color{black}\bfseries,
+	commentstyle=\color{mediumgray},
+	stringstyle=\color{black},
+	captionpos=b,
+	framerule=0.5pt,
+	rulecolor=\color{black}
+}
+
+% Definición de entorno para notas
+\newmdenv[
+linewidth=0.5pt,
+linecolor=black,
+topline=false,
+rightline=false,
+bottomline=false,
+leftmargin=10pt,
+innerleftmargin=5pt,
+skipabove=10pt,
+skipbelow=10pt
+]{nota}
 
 % Paquetes para referencias
 \usepackage[round]{natbib}  % Configuración específica para citas
@@ -58,7 +117,7 @@
 			{\scriptsize\textbf{Instituto Tecnológico de Morelia}}\\[-0.6em]
 			\smallgray{Subdirección Académica}\\[-0.6em]
 			\smallgray{Departamento de Sistemas y Computación}\\[-0.6em]
-			\smallgray{Ciencia de Datos}\\[-0.4em]
+			\smallgray{Infraestructura de Servicios}\\[-0.4em]
 			{\scriptsize Página \thepage\ de \pageref{LastPage}}
 		\end{tabular}%
 	}%
@@ -70,16 +129,16 @@
 
 \fancyfoot[L]{%
 	\small
-	Tarea 2
+	Tarea 4: Consolidación de Servidores
 	
 	\vspace{0.1cm}
 	
-	\small\textcolor{gray}{Equipo 1}
+	\small\textcolor{gray}{Mario Eduardo Sánchez Mejía}
 }
 
 \fancyfoot[R]{%
 	\small
-	\textbf{Primera Extracción de Datos}%
+	\textbf{21120721}%
 }
 
 % Definir comando para citas
@@ -91,17 +150,19 @@
 	
 	% Secciones principales
 	\input{sections/portada}
+	
+	
+	\tableofcontents
 	\newpage
 	\input{sections/introduccion}
 	\newpage
 	\input{sections/desarrollo}
 	\newpage
 	\input{sections/conclusion}
-	\newpage
 	
 	% Referencias
-	\clearpage
-	\addcontentsline{toc}{section}{Referencias}
-	\bibliography{referencias} 
+	%\clearpage
+	%\addcontentsline{toc}{section}{Referencias}
+	%\bibliography{referencias} 
 	
 \end{document}
